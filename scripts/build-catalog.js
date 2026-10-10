@@ -75,6 +75,7 @@ function controlar(lectura, prev) {
     else if (faltan.length) fallas.push(`C1: ${marca} tiene ${faltan.length} codigos de hotspots que no entraron al catalogo: ${faltan.slice(0, 15).join(', ')}`);
     if (l.stats.sinPrecio.length) avisos.push(`${marca}: ${l.stats.sinPrecio.length} variantes sin precio quedaron afuera (${l.stats.sinPrecio.slice(0, 10).join(', ')})`);
     if (l.stats.avonPromo && l.stats.avonPromo.length) avisos.push(`${marca}: ${l.stats.avonPromo.length} productos de Avon traen promo_price y se uso ese precio (el metodo dice sale_price para Avon): revisar contra la revista (${l.stats.avonPromo.slice(0, 8).join(', ')})`);
+    if (l.stats.codigosExcluidos && l.stats.codigosExcluidos.length) avisos.push(`${marca}: ${l.stats.codigosExcluidos.length} codigos que no son solo digitos quedaron afuera (${l.stats.codigosExcluidos.slice(0, 6).join('; ')})`);
     if (l.stats.marcadores.length) avisos.push(`${marca}: ${l.stats.marcadores.length} marcadores del feed de stock quedaron afuera (${l.stats.marcadores.slice(0, 6).join(', ')})`);
   }
 
@@ -184,6 +185,13 @@ function armarInforme({ ok, fallas, avisos, diff, rows, lectura }) {
       console.log('Leyendo', rev.marca, rev.url);
       const l = await leerRevista(browser, rev);
       l.marca = rev.marca;
+      // Avon: solo codigos de digitos. Los codigos con guion (ej. 10509-8, "- Contado") vienen del feed de stock, no figuran en la revista y no sirven para pedir.
+      l.stats.codigosExcluidos = [];
+      if (rev.marca === 'Avon') {
+        const buenas = [];
+        for (const r of l.rows) { if (/^\d+$/.test(String(r.codigo))) buenas.push(r); else l.stats.codigosExcluidos.push(`${r.codigo} ${r.producto}`); }
+        l.rows = buenas;
+      }
       console.log(`  ${rev.marca}: ${l.rows.length} productos, ${l.stats.marcadores.length} marcadores, ${l.stats.sinPrecio.length} sin precio`);
       lectura.push(l);
     }
