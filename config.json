@@ -15,6 +15,7 @@
     "variacionTotalMaxPct": 10,
     "quitadosMaxPct": 3,
     "nuevosMaxPct": 5,
-    "preciosCambiadosMaxPct": 5
+    "preciosCambiadosMaxPct": 5,
+    "nombresCambiadosMaxPct": 3
   }
 }
