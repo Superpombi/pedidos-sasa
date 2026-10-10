@@ -74,6 +74,7 @@ function controlar(lectura, prev) {
     if (!l.hotspots || !l.hotspots.length) fallas.push(`C1: ${marca} no devolvio hotspots (no se puede verificar cobertura)`);
     else if (faltan.length) fallas.push(`C1: ${marca} tiene ${faltan.length} codigos de hotspots que no entraron al catalogo: ${faltan.slice(0, 15).join(', ')}`);
     if (l.stats.sinPrecio.length) avisos.push(`${marca}: ${l.stats.sinPrecio.length} variantes sin precio quedaron afuera (${l.stats.sinPrecio.slice(0, 10).join(', ')})`);
+    if (l.stats.avonPromo && l.stats.avonPromo.length) avisos.push(`${marca}: ${l.stats.avonPromo.length} productos de Avon traen promo_price y se uso ese precio (el metodo dice sale_price para Avon): revisar contra la revista (${l.stats.avonPromo.slice(0, 8).join(', ')})`);
     if (l.stats.marcadores.length) avisos.push(`${marca}: ${l.stats.marcadores.length} marcadores del feed de stock quedaron afuera (${l.stats.marcadores.slice(0, 6).join(', ')})`);
   }
 
@@ -87,16 +88,30 @@ function controlar(lectura, prev) {
       const a = antes.get(r.codigo);
       if (!a) { nuevos.push(r); continue; }
       if (a[2] !== r.precio) precios.push({ codigo: r.codigo, producto: r.producto, antes: a[2], ahora: r.precio });
-      else if (a[1] !== r.producto) nombres.push({ codigo: r.codigo, antes: a[1], ahora: r.producto });
+      if (a[1] !== r.producto) nombres.push({ codigo: r.codigo, antes: a[1], ahora: r.producto });
     }
     for (const [c, a] of antes) if (!ahora.has(c)) quitados.push({ codigo: c, producto: a[1], precio: a[2], marca: a[3] });
-    diff = { nuevos, quitados, precios, nombres };
+    // nombres cruzados: un codigo toma el nombre que tenia otro codigo (aviso, no frena)
+    const nombreAntesDe = new Map();
+    for (const p of prev.productos) if (!nombreAntesDe.has(p[1])) nombreAntesDe.set(p[1], p[0]);
+    const cruzados = [];
+    const vistosCruce = new Set();
+    for (const n of nombres) {
+      const otro = nombreAntesDe.get(n.ahora);
+      if (otro && otro !== n.codigo && !vistosCruce.has(n.codigo)) {
+        const tambien = nombres.find(m => m.codigo === otro && m.ahora === n.antes);
+        if (tambien) { vistosCruce.add(n.codigo); vistosCruce.add(otro); cruzados.push([n.codigo, otro]); }
+      }
+    }
+    diff = { nuevos, quitados, precios, nombres, cruzados };
     const L = cfg.limites;
     const base = prev.productos.length;
     if (pct(Math.abs(rows.length - base), base) > L.variacionTotalMaxPct) fallas.push(`C7: la cantidad paso de ${base} a ${rows.length} (mas de ${L.variacionTotalMaxPct}%)`);
     if (pct(quitados.length, base) > L.quitadosMaxPct) fallas.push(`Quitados: ${quitados.length} de ${base} (mas de ${L.quitadosMaxPct}%)`);
     if (pct(nuevos.length, base) > L.nuevosMaxPct) fallas.push(`Nuevos: ${nuevos.length} (mas de ${L.nuevosMaxPct}% del catalogo)`);
     if (pct(precios.length, base) > L.preciosCambiadosMaxPct) fallas.push(`Precios cambiados: ${precios.length} (mas de ${L.preciosCambiadosMaxPct}% del catalogo)`);
+    if (cruzados.length) avisos.push(`NOMBRES CRUZADOS: ${cruzados.map(c => c[0] + ' y ' + c[1]).join('; ')} intercambiaron nombres respecto del catalogo publicado (se publica igual, la revista manda; conviene mirarlo)`);
+    if (L.nombresCambiadosMaxPct && pct(nombres.length, base) > L.nombresCambiadosMaxPct) fallas.push(`Nombres cambiados: ${nombres.length} (mas de ${L.nombresCambiadosMaxPct}% del catalogo): probable lectura rota`);
     // una marca no puede desaparecer ni caer a la mitad
     const marcas = {};
     for (const p of prev.productos) marcas[p[3]] = (marcas[p[3]] || 0) + 1;

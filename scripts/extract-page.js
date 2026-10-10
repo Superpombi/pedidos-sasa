@@ -18,6 +18,7 @@ async (marca) => {
   const rows = [];
   const marcadores = [];
   const sinPrecio = [];
+  const avonPromo = [];
   let variantes = 0;
   for (const p of S.products) {
     const src = p.original && p.original.source;
@@ -33,6 +34,7 @@ async (marca) => {
       const nombre = partes.filter(Boolean).join(' - ');
       const promoPrice = Number(p.promo_price);
       const precio = (promoPrice > 0) ? promoPrice : Number(v.sale_price);
+      if (marca === 'Avon' && promoPrice > 0) avonPromo.push(clean(v.sku));
       const promo = clean(v.promotions && v.promotions[0] && v.promotions[0].description);
       const esMarcador = src === 'agents-stock' && (!titulo || /^kit\b/i.test(titulo) || !(precio > 0));
       if (!sku) continue;
@@ -41,5 +43,5 @@ async (marca) => {
       rows.push({ codigo: sku, producto: nombre, precio: Math.round(precio), marca, promo, fuente: src || '' });
     }
   }
-  return { rows, stats: { productos: S.products.length, variantes, marcadores, sinPrecio } };
+  return { rows, stats: { productos: S.products.length, variantes, marcadores, sinPrecio, avonPromo } };
 }
