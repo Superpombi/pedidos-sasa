@@ -1,0 +1,9 @@
+{
+  "name": "pedidos-sasa-catalogo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lee las revistas Avon y Natura y publica el catalogo para la app Pedidos Avon",
+  "dependencies": {
+    "playwright": "1.48.2"
+  }
+}
