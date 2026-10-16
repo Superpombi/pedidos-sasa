@@ -1,13 +1,13 @@
 {
-  "ciclo": "15",
+  "ciclo": "16",
   "revistas": [
     {
       "marca": "Avon",
-      "url": "https://ar.natura-avon.digital-catalogue.com/ar/2026/15/revista/cft-15/view/"
+      "url": "https://ar.natura-avon.digital-catalogue.com/ar/2026/16/revista/cft-16/view/"
     },
     {
       "marca": "Natura",
-      "url": "https://ar.natura.digital-catalogue.com/ar/2026/15/revista/natura-ciclo-15/view/"
+      "url": "https://ar.natura.digital-catalogue.com/ar/2026/16/revista/natura-ciclo-16/view/"
     }
   ],
   "limites": {
