@@ -1,23 +1,24 @@
 # Informe del catalogo, ciclo 16
 
-Corrida: 2026-10-17 13:03 UTC. Resultado: **PUBLICADO**.
+Corrida: 2026-10-18 13:23 UTC. Resultado: **PUBLICADO**.
 
-Productos: 1537 (Avon 674, Natura 863). Suma de precios: 37988720.
+Productos: 1542 (Avon 680, Natura 862). Suma de precios: 38038820.
 
 ## Avisos
-- Natura: 2 marcadores del feed de stock quedaron afuera (Kaiak aventura, Kaiak femenino)
+- Avon: 1 codigos que no son solo digitos quedaron afuera (11247-4 Máscara de Volumen para Pestañas | Power Stay)
 
 ## Productos del feed de stock incluidos (volatiles)
-- 185 Kriska alegría - 100 ml $54500 (Natura)
+- 207613 Avon Care Sandía Crema Corporal $10300 (Avon)
+- 207690 Anew Solar Triple Protección FPS 50 - Medium $21500 (Avon)
+- 177787 Ultra Color Paleta de Sombras para Párpados - Bronze $15700 (Avon)
 
-## Productos quitados (7)
+## Productos nuevos (6)
 - 222082 Labial Hidratante $6900 (Avon)
 - 208717 Power Stay Base de Maquillaje en Crema - Medium Beige $23500 (Avon)
 - 283132 Kit x2 Black Suede Eau de Toilette + Desodorante Antitranspirante Roll-On Black Suede $26700 (Avon)
-- 108636 Sérum intensivo lifting & firmeza Chronos Derma - 30 ml $59590 (Natura)
-- 109441 Desodorante Roll On Femenino Kaiak $1100 (Natura)
-- 112081 Desodorante Roll On Clásico Masculino Kaiak $1100 (Natura)
-- 90892 Ekos Magia da Amazonia 100 ml $47068 (Natura)
+- 207613 Avon Care Sandía Crema Corporal $10300 (Avon)
+- 207690 Anew Solar Triple Protección FPS 50 - Medium $21500 (Avon)
+- 177787 Ultra Color Paleta de Sombras para Párpados - Bronze $15700 (Avon)
 
-## Precios cambiados (1)
-- 185 Kriska alegría - 100 ml: $37930 -> $54500
+## Productos quitados (1)
+- 185 Kriska alegría - 100 ml $54500 (Natura)
