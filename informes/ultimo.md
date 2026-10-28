@@ -1,8 +1,8 @@
 # Informe del catalogo, ciclo 16
 
-Corrida: 2026-10-27 15:27 UTC. Resultado: **PUBLICADO**.
+Corrida: 2026-10-28 16:09 UTC. Resultado: **PUBLICADO**.
 
-Productos: 1537 (Avon 674, Natura 863). Suma de precios: 37986420.
+Productos: 1540 (Avon 677, Natura 863). Suma de precios: 38043520.
 
 ## Avisos
 - Natura: 2 marcadores del feed de stock quedaron afuera (Kaiak aventura, Kaiak femenino)
@@ -10,7 +10,7 @@ Productos: 1537 (Avon 674, Natura 863). Suma de precios: 37986420.
 ## Productos del feed de stock incluidos (volatiles)
 - 185 Kriska alegría - 100 ml $54500 (Natura)
 
-## Productos quitados (3)
+## Productos nuevos (3)
 - 222082 Labial Hidratante $6900 (Avon)
 - 208717 Power Stay Base de Maquillaje en Crema - Medium Beige $23500 (Avon)
 - 283132 Kit x2 Black Suede Eau de Toilette + Desodorante Antitranspirante Roll-On Black Suede $26700 (Avon)
