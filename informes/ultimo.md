@@ -1,14 +1,12 @@
-# Informe del catalogo, ciclo 16
+# Informe del catalogo, ciclo 17
 
-Corrida: 2026-11-05 17:29 UTC. Resultado: **PUBLICADO**.
+Corrida: 2026-11-05 22:46 UTC. Resultado: **PUBLICADO**.
 
-Productos: 1540 (Avon 677, Natura 863). Suma de precios: 38021720.
+Productos: 1610 (Avon 708, Natura 902). Suma de precios: 40759625.
 
 ## Avisos
-- Natura: 3 marcadores del feed de stock quedaron afuera (Kaiak aventura, Kaiak femenino, 131767)
+- Ciclo nuevo (16 -> 17): no se comparan cantidades contra el catalogo anterior.
 
 ## Productos del feed de stock incluidos (volatiles)
 - 185 Kriska alegría - 100 ml $32700 (Natura)
-
-## Productos quitados (1)
-- 176798 Regalo Humor meu primeiro femenino $32676 (Natura)
+- 206 Humor Paz e Humor Masculino EDT 25 ml - 25 ml $20400 (Natura)
