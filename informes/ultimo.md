@@ -1,14 +1,14 @@
 # Informe del catalogo, ciclo 17
 
-Corrida: 2026-11-18 18:11 UTC. Resultado: **PUBLICADO**.
+Corrida: 2026-11-19 18:23 UTC. Resultado: **PUBLICADO**.
 
-Productos: 1605 (Avon 708, Natura 897). Suma de precios: 40457725.
+Productos: 1610 (Avon 708, Natura 902). Suma de precios: 40759625.
 
-## Productos nuevos (2)
-- 285839 Kit x2 Atraction game $40500 (Avon)
-- 285865 Kit x2 Exclusive Original + desodorante Roll on $38400 (Avon)
+## Productos del feed de stock incluidos (volatiles)
+- 206 Humor Paz e Humor Masculino EDT 25 ml - 25 ml $20400 (Natura)
+- 185 Kriska alegría - 100 ml $32700 (Natura)
 
-## Productos quitados (5)
+## Productos nuevos (5)
 - 242460 Joyero - Creer para ver $23000 (Natura)
 - 232066 Paleta multifuncional 8 tonos - 9 g - 8 tonos - Una $96400 (Natura)
 - 206 Humor Paz e Humor Masculino EDT 25 ml - 25 ml $20400 (Natura)
