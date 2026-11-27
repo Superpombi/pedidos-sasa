@@ -1,6 +1,6 @@
 # Informe del catalogo, ciclo 17
 
-Corrida: 2026-11-26 19:08 UTC. Resultado: **PUBLICADO**.
+Corrida: 2026-11-27 19:04 UTC. Resultado: **PUBLICADO**.
 
 Productos: 1603 (Avon 706, Natura 897). Suma de precios: 40378825.
 
